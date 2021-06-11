@@ -11,6 +11,7 @@ public interface NameService {
 
     JSONObject searchState(JSONObject request);
 
+    JSONObject searchName(JSONObject request);
 
 
 }

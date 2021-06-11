@@ -70,4 +70,23 @@ public class NameServiceImpl implements NameService {
         return result;
     }
 
+    @Override
+    public JSONObject searchName(JSONObject request) {
+        JSONObject result = new JSONObject();
+        try {
+            int pageNum = request.getInteger("pageNum");
+            int pageSize = request.getInteger("pageSize");
+            PageInfo<Name> pageInfo = new PageInfo(nameDao.searchName(request));
+
+            result.put("code", "0");
+            result.put("msg", "operation success！");
+            result.put("data", pageInfo.getList());
+            result.put("count", pageInfo.getTotal());
+        } catch (Exception e) {
+            result.put("code", "500");
+            result.put("msg", "query error！");
+        }
+        return result;
+    }
+
 }

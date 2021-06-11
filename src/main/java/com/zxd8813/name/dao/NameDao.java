@@ -19,5 +19,7 @@ public interface NameDao {
     @Select("SELECT * FROM names WHERE State=#{state}")
     List<Name> searchState(JSONObject request);
 
+    @Select("SELECT * FROM names WHERE Name=#{name}")
+    List<Name> searchName(JSONObject request);
 
 }
