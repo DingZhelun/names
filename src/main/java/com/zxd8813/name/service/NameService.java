@@ -13,5 +13,7 @@ public interface NameService {
 
     JSONObject searchName(JSONObject request);
 
+    JSONObject updateName(JSONObject request);
+
 
 }

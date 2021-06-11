@@ -89,4 +89,19 @@ public class NameServiceImpl implements NameService {
         return result;
     }
 
+
+    @Override
+    public JSONObject updateName(JSONObject request) {
+        JSONObject result = new JSONObject();
+        try {
+            nameDao.updatePeople(request);
+            result.put("code", "0");
+            result.put("msg", "operation success！");
+        } catch (Exception e) {
+            result.put("code", "500");
+            result.put("msg", "update name error!");
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
 }

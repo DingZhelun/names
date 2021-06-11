@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.zxd8813.name.model.Name;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -21,5 +22,8 @@ public interface NameDao {
 
     @Select("SELECT * FROM names WHERE Name=#{name}")
     List<Name> searchName(JSONObject request);
+
+    @Update("UPDATE names SET Room=#{room},Name=#{name},State=#{state},Caption=#{caption} WHERE Name=#{name}")
+    void updatePeople(JSONObject request);
 
 }

@@ -30,4 +30,9 @@ public class nameController {
     public JSONObject searchName(@RequestBody JSONObject request){
         return nameService.searchName(request);
     }
+
+    @RequestMapping(value = "/updateName", method = RequestMethod.POST)
+    public JSONObject updateName(@RequestBody JSONObject request) {
+        return nameService.updateName(request);
+    }
 }
