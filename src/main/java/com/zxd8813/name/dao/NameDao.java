@@ -16,5 +16,8 @@ public interface NameDao {
     @Select("SELECT * FROM names WHERE Room=#{room}")
     List<Name> searchRoom(JSONObject request);
 
+    @Select("SELECT * FROM names WHERE State=#{state}")
+    List<Name> searchState(JSONObject request);
+
 
 }

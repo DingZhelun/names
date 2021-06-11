@@ -9,6 +9,7 @@ public interface NameService {
 
     JSONObject searchRoom(JSONObject request);
 
+    JSONObject searchState(JSONObject request);
 
 
 

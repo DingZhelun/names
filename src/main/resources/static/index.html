@@ -12,6 +12,26 @@
     <h1>Zhelun Ding 1001888813</h1>
     <img style="height:100px;width:100px;" src="/image/s.jpg">
 </div>
+<div style="margin: 10px 0 10px 1%;width: 99%">
+    <div style="display: table-cell">
+        <form class="layui-form" id="search_state">
+            <div class="layui-input-block" style="display: table-cell">
+                <!--            <label>&emsp;接&emsp;口&emsp;</label>-->
+                <div class="layui-input-inline" style="width: 260px">
+                    <input type="text" name="state" placeholder="please input state"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div style="display: table-cell">
+                <button class="layui-btn layui-btn-sm layui-btn-danger" lay-submit lay-filter="search_state"
+                        style="margin-left: 15px"><i class="layui-icon">&#xe615;</i>Search
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
 
 <div style="margin: 10px 0 10px 1%;width: 99%">
     <div style="display: table-cell">
@@ -197,6 +217,18 @@
             if (count !== 0) {
                 //数据表格重载
                 tableReload('goodsReload', formData, "application/json; charset=utf-8", '/name/searchRoom', 'post');
+            } else {
+                parent.layer.msg('please select the query condition！', {icon: 2, time: 1500});
+            }
+            return false;
+        });
+
+        form.on('submit(search_state)', function (data) {
+            var formData = data.field;
+            var count = checkForm("search_state");
+            if (count !== 0) {
+                //数据表格重载
+                tableReload('goodsReload', formData, "application/json; charset=utf-8", '/name/searchState', 'post');
             } else {
                 parent.layer.msg('please select the query condition！', {icon: 2, time: 1500});
             }

@@ -20,4 +20,9 @@ public class nameController {
     public JSONObject searchRoom(@RequestBody JSONObject request){
         return nameService.searchRoom(request);
     }
+
+    @RequestMapping(value = "searchState",method = RequestMethod.POST)
+    public JSONObject searchState(@RequestBody JSONObject request){
+        return nameService.searchState(request);
+    }
 }
